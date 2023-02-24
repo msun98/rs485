@@ -37,12 +37,21 @@ void MainWindow::on_btnConnect_clicked()
     // 시리얼 설정 코드
     std::cout<<"workindlnd"<<std::endl;
     m_serialPort->setPortName("/dev/ttyUSB0"); // 포트 이름 지정
-    m_serialPort->setBaudRate(QSerialPort::Baud115200); // baud: 초당 신호(siganl) 요소의 수 , 예) 하나의 버드에 2bit 있다면 1Baud 동안 2bit 전송 됨
+    m_serialPort->setBaudRate(QSerialPort::Baud9600); // baud: 초당 신호(siganl) 요소의 수 , 예) 하나의 버드에 2bit 있다면 1Baud 동안 2bit 전송 됨
     m_serialPort->setDataBits(QSerialPort::Data8); // dataBits
     m_serialPort->setParity(QSerialPort::NoParity); // 정보 전달 과정에 오류가 생겼는지 검사하기 위한 것
     m_serialPort->setStopBits(QSerialPort::OneStop); // 포트를 열기전에 set 또는 success 하면 return true로 반환된다.
     m_serialPort->setFlowControl(QSerialPort::NoFlowControl); // 흐름제어
     if (m_serialPort->open(QIODevice::ReadWrite)) { //시리얼 장치 연 후 작업들
+
+        m_serialPort->setBaudRate(QSerialPort::Baud9600); // baud: 초당 신호(siganl) 요소의 수 , 예) 하나의 버드에 2bit 있다면 1Baud 동안 2bit 전송 됨
+        m_serialPort->setDataBits(QSerialPort::Data8); // dataBits
+        m_serialPort->setParity(QSerialPort::NoParity); // 정보 전달 과정에 오류가 생겼는지 검사하기 위한 것
+        m_serialPort->setStopBits(QSerialPort::OneStop); // 포트를 열기전에 set 또는 success 하면 return true로 반환된다.
+        m_serialPort->setFlowControl(QSerialPort::NoFlowControl); // 흐름제어
+
+
+
         ui->btnConnect->setEnabled(false);
         std::cout<<"open"<<std::endl;
         ui->btnDisConnect->setEnabled(true);
@@ -60,16 +69,20 @@ void MainWindow::on_btnDisConnect_clicked()
     ui->btnConnect->setEnabled(true);
     ui->btnDisConnect->setEnabled(false);
 }
-
+QString str;
 void MainWindow::readData()
 {
 
-    qDebug() << "hjiiiiiiii";
-    QByteArray data = m_serialPort->readAll();
+    QByteArray seiralData = m_serialPort->readAll();
 
-    qDebug() << data;
+    for(int i=0; i < seiralData.length(); i++)
+    {
+        printf("%d\n", (int)seiralData[i]);// qbytearray 로 불러온 데이터 printf 로 받기 위함.
+    }
 
-    qDebug() << data.size() << "/" << (int)data[2];
+//    qDebug() << seiralData;
+
+
 }
 
 
