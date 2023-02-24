@@ -31,6 +31,8 @@ private slots:
     void on_btnDisConnect_clicked();
 
 
+    void on_write_clicked();
+
 private:
     Ui::MainWindow *ui;
 

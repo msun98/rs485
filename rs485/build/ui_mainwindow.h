@@ -25,6 +25,7 @@ public:
     QWidget *centralwidget;
     QPushButton *btnConnect;
     QPushButton *btnDisConnect;
+    QPushButton *write;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,6 +42,9 @@ public:
         btnDisConnect = new QPushButton(centralwidget);
         btnDisConnect->setObjectName(QString::fromUtf8("btnDisConnect"));
         btnDisConnect->setGeometry(QRect(400, 200, 89, 25));
+        write = new QPushButton(centralwidget);
+        write->setObjectName(QString::fromUtf8("write"));
+        write->setGeometry(QRect(190, 200, 89, 25));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -60,6 +64,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         btnConnect->setText(QApplication::translate("MainWindow", "connect", nullptr));
         btnDisConnect->setText(QApplication::translate("MainWindow", "disconnect", nullptr));
+        write->setText(QApplication::translate("MainWindow", "write", nullptr));
     } // retranslateUi
 
 };

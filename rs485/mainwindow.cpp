@@ -72,10 +72,16 @@ void MainWindow::readData()
     qDebug() << data.size() << "/" << (int)data[2];
 }
 
+
 void MainWindow::handleError(QSerialPort::SerialPortError error)
 {
     if (error == QSerialPort::ResourceError) {
         std::cout<<"Error"<<std::endl;
         on_btnDisConnect_clicked();
     }
+}
+
+void MainWindow::on_write_clicked()
+{
+    m_serialPort->write("ddddddddd");
 }
