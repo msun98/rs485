@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -26,6 +27,7 @@ public:
     QPushButton *btnConnect;
     QPushButton *btnDisConnect;
     QPushButton *write;
+    QLineEdit *le_value;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,7 +46,10 @@ public:
         btnDisConnect->setGeometry(QRect(400, 200, 89, 25));
         write = new QPushButton(centralwidget);
         write->setObjectName(QString::fromUtf8("write"));
-        write->setGeometry(QRect(190, 200, 89, 25));
+        write->setGeometry(QRect(300, 150, 89, 25));
+        le_value = new QLineEdit(centralwidget);
+        le_value->setObjectName(QString::fromUtf8("le_value"));
+        le_value->setGeometry(QRect(160, 200, 113, 25));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

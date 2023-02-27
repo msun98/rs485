@@ -7,6 +7,9 @@
 #include <QSerialPort>
 #include <QSerialPortInfo>
 #include <QTimer>
+#include <iostream>
+#include <unistd.h>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

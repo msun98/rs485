@@ -43,14 +43,24 @@
    <widget class="QPushButton" name="write">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>200</y>
+      <x>300</x>
+      <y>150</y>
       <width>89</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>write</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_value">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>200</y>
+      <width>113</width>
+      <height>25</height>
+     </rect>
     </property>
    </widget>
   </widget>
